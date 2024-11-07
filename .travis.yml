@@ -6,6 +6,7 @@ ENV:
         - SHA=$(git rev-parse HEAD)
         - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
+    - gcloud auth login
     - gcloud config set project multi-k8s-440912
     - gcloud config set compute/zone europe-north1-a
     - gcloud container clusters get-credentials multi-cluster
